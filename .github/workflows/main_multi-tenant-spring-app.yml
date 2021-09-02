@@ -21,14 +21,14 @@ jobs:
       with:
         java-version: '11'
 
-    - name: Build with Maven
-      run: mvn clean install
+    - name: Build with gradlew
+      run: gradle clean build
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
       with:
         name: java-app
-        path: '${{ github.workspace }}/target/*.jar'
+        path: '${{ github.workspace }}/build/libs/*.war'
 
   deploy:
     runs-on: windows-latest
@@ -50,4 +50,4 @@ jobs:
         app-name: 'multi-tenant-spring-app'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_2d2acb9fdbe44d778004fb6dfab6f71b }}
-        package: '*.jar'
+        package: '*.war'
