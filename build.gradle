@@ -1,5 +1,4 @@
 repositories{
-	maven { url "http://artifactsind1.hqdev.india:8081/repository/maven-public/"}
 	mavenCentral()
 }
 
