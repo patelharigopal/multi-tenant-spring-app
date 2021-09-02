@@ -47,7 +47,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'multi-tenant'
-        slot-name: 'dev'
+        app-name: 'multi-tenant-spring-app'
+        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_2d2acb9fdbe44d778004fb6dfab6f71b }}
         package: '*.war'
